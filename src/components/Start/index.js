@@ -17,15 +17,19 @@ function Start() {
 
   console.log(movies);
 
-  return (
-    <>
-      {movies.map((movie) =>(
-        <Link to={`/filme/${movie.id}`}>Ir para filme</Link>
-      ))}
-
-     
-    </>
-  );
+  if (movies.length > 0) {
+    return (
+      <>
+        {movies.map((movie) => (
+          <Link key={movie.id} to={`/filme/${movie.id}`}>
+            Ir para filme
+          </Link>
+        ))}
+      </>
+    );
+  } else {
+    return <h1>Carregando</h1>;
+  }
 }
 
 export default Start;

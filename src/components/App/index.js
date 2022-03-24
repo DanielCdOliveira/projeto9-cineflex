@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Start />}></Route>
           <Route path="/filme/:idFilme" element={<Movie />}></Route>
-          <Route path="/sessao" element={<Session />}></Route>
+          <Route path="/sessao/:idSessao" element={<Session />}></Route>
           <Route path="/sucesso" element={<End />}></Route>
         </Routes>
       </BrowserRouter>
