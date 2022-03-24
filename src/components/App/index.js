@@ -12,7 +12,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Start />}></Route>
-          <Route path="/filme" element={<Movie />}></Route>
+          <Route path="/filme/:idFilme" element={<Movie />}></Route>
           <Route path="/sessao" element={<Session />}></Route>
           <Route path="/sucesso" element={<End />}></Route>
         </Routes>
