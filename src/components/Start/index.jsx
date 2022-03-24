@@ -16,15 +16,24 @@ function Start() {
   }, []);
 
   console.log(movies);
-
+  
   if (movies.length > 0) {
     return (
       <>
-        {movies.map((movie) => (
-          <Link key={movie.id} to={`/filme/${movie.id}`}>
-            Ir para filme
-          </Link>
-        ))}
+        <main>
+          <h2>Selecione o filme</h2>
+          <ul className="movies-list">
+            {movies.map((movie) => {
+              return (
+                <Link key={movie.id} to={`/filme/${movie.id}`}>
+                  <li className="movie-poster">
+                  <img src={movie.posterURL} alt="" />
+                  </li>
+                </Link>
+              );
+            })}
+          </ul>
+      </main>
       </>
     );
   } else {
