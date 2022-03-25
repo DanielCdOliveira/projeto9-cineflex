@@ -23,27 +23,23 @@ function Movie() {
     <main>
       <h2>Selecione o horário</h2>
       <ul className="sessions-list">
-      {sessions.map((session) => {
-          
+        {sessions.map((session) => {
           return (
-          
-         
             <li key={session.id} className="session">
               <p>{`${session.weekday} - ${session.date}`}</p>
-              {session.showtimes.map((hour)=>{
-                return(
-                  <Link key={hour.id}  to={`/sessao/${hour.id}`}>
-                    <button >{hour.name}</button>
+              {session.showtimes.map((hour) => {
+                return (
+                  <Link key={hour.id} to={`/sessao/${hour.id}`}>
+                    <button>{hour.name}</button>
                   </Link>
-
-                ) 
+                );
               })}
             </li>
-          )
-})}
-    </ul>
+          );
+        })}
+      </ul>
     </main>
-  )
+  );
 }
 
 export default Movie;
