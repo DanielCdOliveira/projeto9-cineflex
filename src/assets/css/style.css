@@ -119,18 +119,70 @@ img {
   display: flex;
   justify-content: space-between;
 }
-.description-option{
+.description-option {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100px;
 }
-.description-option .seat{
-  margin-bottom: 10px ;
+.description-option .seat {
+  margin-bottom: 10px;
 }
 .description p {
   font-size: 13px;
   line-height: 15px;
   color: #4e5a65;
+}
+/* Inputs */
+.inputs {
+  width: 100%;
+  padding: 0px 4%;
+  align-self: center;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.inputs label {
+  font-size: 18px;
+  line-height: 21px;
+  color: var(--text);
+}
+.inputs input {
+  width: 88%;
+  max-width: 450;
+  height: 51px;
+  padding-left: 18px;
+  background: #ffffff;
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  font-size: 18px;
+  line-height: 21px;
+  color: var(--text);
+}
+.inputs button {
+  background: var(--highlight-color);
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  width: 225px;
+  height: 42px;
+  align-self: center;
+  margin-top: 57px;
+}
+::placeholder {
+  font-size: 18px;
+  line-height: 21px;
+  color: #afafaf;
+}
+/* General settings */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
