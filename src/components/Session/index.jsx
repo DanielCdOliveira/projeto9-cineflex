@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -11,7 +11,8 @@ function Session() {
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
   const [seatsArray, setSeatsArray] = useState([]);
-  const [selected, setSelected] = useState()
+  const [selected, setSelected] = useState();
+  const navigate = useNavigate();
   useEffect(() => {
     const promise = axios.get(
       `https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`
@@ -25,7 +26,7 @@ function Session() {
   }, []);
 
   function selectSeat(seat) {
-    setSelected("selected")
+    setSelected("selected");
 
     seat = parseInt(seat);
 
@@ -56,10 +57,16 @@ function Session() {
       seats
     );
 
-    promise.then((response) => {
+    let info = {
+      seats: seats,
+      session: session,
+    };
+    promise.then(() => {
+      navigate("/sucesso", { state: info });
+    });
+    promise.catch((response) => {
       console.log(response);
     });
-    promise.catch(console.log("deu xabu"));
   }
   console.log(session);
   if (Object.keys(session).length !== 0) {
@@ -73,7 +80,7 @@ function Session() {
                 onClick={() => {
                   selectSeat(seat.name);
                 }}
-                className={seat.isAvailable ? `seat` : 'seat occupied'}
+                className={seat.isAvailable ? `seat` : "seat occupied"}
                 key={seat.id}
               >
                 {seat.name}

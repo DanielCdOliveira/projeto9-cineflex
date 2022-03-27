@@ -25,7 +25,7 @@ h1 {
   line-height: 40px;
   color: var(--highlight-color);
 }
-/* PAGINA INICIAL */
+/* Start page*/
 main {
   margin-top: 67px;
   height: fit-content;
@@ -63,7 +63,7 @@ img {
   width: 129px;
   height: 193px;
 }
-/* Pagina de sessoes */
+/* Sessions page */
 .sessions-list {
   width: 100%;
   padding: 0px 6%;
@@ -90,7 +90,7 @@ img {
 .session {
   height: fit-content;
 }
-/* Pagina de assentos */
+/* Seats page */
 .seats {
   width: 100%;
   padding: 0px 4%;
@@ -161,6 +161,8 @@ img {
   color: var(--text);
 }
 .inputs button {
+  font-size: 18px;
+  line-height: 21px;
   background: var(--highlight-color);
   border-radius: 3px;
   border: none;
@@ -175,14 +177,50 @@ img {
   line-height: 21px;
   color: #afafaf;
 }
+/* End screen */
+.end h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #247a6b;
+  width: 50%;
+  padding-bottom: 40px;
+}
+.info {
+  width: 100%;
+  padding: 0px 6%;
+  color: var(--text);
+  margin-bottom: 25px;
+}
+.info p {
+  font-size: 20px;
+  line-height: 26px;
+}
+h4 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 10px;
+}
+.button-home {
+  font-size: 18px;
+line-height: 21px;
+  background: var(--highlight-color);
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  width: 225px;
+  height: 42px;
+  align-self: center;
+  margin-top: 57px;
+}
+
 /* General settings */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-/* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
 }
