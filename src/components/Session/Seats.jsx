@@ -1,12 +1,11 @@
 import { useState } from "react";
 
 function Seats(props) {
-  console.log(props);
 
   return (
     <ul className="seats">
-      {props.session.seats.map((seat) => (
-        <CreatSeat seat={seat} selectSeat={props.selectSeat} />
+      {props.session.seats.map((seat, index) => (
+        <CreatSeat key={index} seat={seat} selectSeat={props.selectSeat} />
       ))}
     </ul>
   );
@@ -15,7 +14,7 @@ function Seats(props) {
 function CreatSeat(props) {
   const { seat, selectSeat } = props;
   const [selected, setSelected] = useState("");
-  console.log();
+
   function changeColor() {
     if (selected === "") {
       setSelected("selected");

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import Loading from "../Loading";
+
 function Start() {
   const [movies, setMovies] = useState([]);
 
@@ -15,7 +17,7 @@ function Start() {
     });
   }, []);
 
-  console.log(movies);
+
 
   if (movies.length > 0) {
     return (
@@ -43,7 +45,7 @@ function Start() {
       </>
     );
   } else {
-    return <h1>Carregando</h1>;
+    return <Loading/> ;
   }
 }
 

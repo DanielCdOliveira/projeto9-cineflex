@@ -248,6 +248,12 @@ footer img {
   width: 48px;
   height: 72px;
 }
+/* LOADING */
+.loading{
+  margin-top: 200px;
+  width: 200px;
+  height: 200px;
+}
 
 /* General settings */
 input::-webkit-outer-spin-button,

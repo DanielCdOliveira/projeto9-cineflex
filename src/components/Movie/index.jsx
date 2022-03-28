@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Footer from "../Footer";
+import Loading from "../Loading";
 
 function Movie() {
   const { idFilme } = useParams();
   const {state} = useLocation()
-  console.log(state)
+
 
 
   const [sessions, setSessions] = useState([]);
@@ -18,16 +19,15 @@ function Movie() {
     );
 
     promise.then((response) => {
-      setSessions(response.data.days);
+      setSessions(response.data);
     });
   }, []);
-
-  console.log(sessions);
-  return (
+  if(Object.keys(sessions).length !== 0){
+     return (
     <main>
       <h2>Selecione o horário</h2>
       <ul className="sessions-list">
-        {sessions.map((session) => {
+        {sessions.days.map((session) => {
           return (
             <li key={session.id} className="session">
               <p>{`${session.weekday} - ${session.date}`}</p>
@@ -45,6 +45,10 @@ function Movie() {
       <Footer img={state.img} title={state.title}/>
     </main>
   );
+  }else{
+    return <Loading/>
+  }
+ 
 }
 
 export default Movie;

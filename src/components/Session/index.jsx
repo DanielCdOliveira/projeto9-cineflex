@@ -5,6 +5,7 @@ import axios from "axios";
 import Description from "./Description";
 import Footer from "../Footer";
 import Seats from "./Seats";
+import Loading from "../Loading";
 
 function Session() {
   const { idSessao } = useParams();
@@ -21,10 +22,8 @@ function Session() {
     );
 
     promise.then((response) => {
-      console.log("foiii");
       setSession(response.data);
     });
-    promise.catch(console.log("deu merda"));
   }, []);
 
   function selectSeat(seat) {
@@ -45,7 +44,7 @@ function Session() {
     
   }
 
-  console.log(seatsArray);
+  
   function reserveSeats(e) {
     e.preventDefault();
 
@@ -54,7 +53,7 @@ function Session() {
       name: name,
       cpf: cpf,
     };
-    console.log(seats);
+   
     const promise = axios.post(
       "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
       seats
@@ -68,10 +67,10 @@ function Session() {
       navigate("/sucesso", { state: info });
     });
     promise.catch((response) => {
-      console.log(response);
+      alert("Não foi possível concluir a reserva")
     });
   }
-  console.log(session);
+
   if (Object.keys(session).length !== 0) {
     return (
       <main>
@@ -105,7 +104,7 @@ function Session() {
 
     );
   } else {
-    return <></>;
+    return <Loading/>
   }
 }
 

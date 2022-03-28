@@ -1,10 +1,4 @@
-import axios from "axios";
-
-
 function Footer (props){
-    
-    
-
     return(
         <footer>
             <div className="footer-icon">
