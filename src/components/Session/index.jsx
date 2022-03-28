@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Description from "./Description";
 import Footer from "../Footer";
+import Seats from "./Seats";
 
 function Session() {
   const { idSessao } = useParams();
@@ -75,21 +76,7 @@ function Session() {
     return (
       <main>
         <h2>Selecione o(s) assento(s)</h2>
-        <ul className="seats">
-          {session.seats.map((seat) => {
-            return (
-              <li
-                onClick={() => {
-                  selectSeat(seat);
-                }}
-                className={seat.isAvailable ? `seat` : "seat occupied"}
-                key={seat.id}
-              >
-                {seat.name}
-              </li>
-            );
-          })}
-        </ul>
+        <Seats session={session} selectSeat={selectSeat}/>
         <Description />
         <form onSubmit={reserveSeats} className="inputs">
           <label>Nome do comprador:</label>
