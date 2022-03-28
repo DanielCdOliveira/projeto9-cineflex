@@ -28,23 +28,23 @@ function Session() {
 
   function selectSeat(seat) {
     let seatId = parseInt(seat.name);
-
     let index = seatsArray.indexOf(seatId);
-    if(seat.isAvailable === true){if (index > -1) {
-      setSeatsArray(
-        seatsArray.filter((item) => {
-          return item != seatId;
-        })
-      );
+
+    if (seat.isAvailable === true) {
+      if (index > -1) {
+        setSeatsArray(
+          seatsArray.filter((item) => {
+            return item != seatId;
+          })
+        );
+      } else {
+        setSeatsArray([...seatsArray, seatId]);
+      }
     } else {
-      setSeatsArray([...seatsArray, seatId]);
-    }}else{
-      alert("Esse assento não está disponível")
+      alert("Esse assento não está disponível");
     }
-    
   }
 
-  
   function reserveSeats(e) {
     e.preventDefault();
 
@@ -53,29 +53,32 @@ function Session() {
       name: name,
       cpf: cpf,
     };
-   
-    const promise = axios.post(
-      "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
-      seats
-    );
 
-    let info = {
-      seats: seats,
-      session: session,
-    };
-    promise.then(() => {
-      navigate("/sucesso", { state: info });
-    });
-    promise.catch((response) => {
-      alert("Não foi possível concluir a reserva")
-    });
+    if (seatsArray.length > 0) {
+      const promise = axios.post(
+        "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
+        seats
+      );
+      let info = {
+        seats: seats,
+        session: session,
+      };
+      promise.then(() => {
+        navigate("/sucesso", { state: info });
+      });
+      promise.catch((response) => {
+        alert("Não foi possível concluir a reserva");
+      });
+    } else {
+      alert("Selecione algum assento");
+    }
   }
 
   if (Object.keys(session).length !== 0) {
     return (
       <main>
         <h2>Selecione o(s) assento(s)</h2>
-        <Seats session={session} selectSeat={selectSeat}/>
+        <Seats session={session} selectSeat={selectSeat} />
         <Description />
         <form onSubmit={reserveSeats} className="inputs">
           <label>Nome do comprador:</label>
@@ -98,13 +101,17 @@ function Session() {
             onChange={(e) => setCpf(e.target.value)}
           />
           <button type="submit">Reservar assento(s)</button>
-        </form>    
-        <Footer img={session.movie.posterURL} title={session.movie.title} day={session.day.weekday} hour={session.name}/>
+        </form>
+        <Footer
+          img={session.movie.posterURL}
+          title={session.movie.title}
+          day={session.day.weekday}
+          hour={session.name}
+        />
       </main>
-
     );
   } else {
-    return <Loading/>
+    return <Loading />;
   }
 }
 
