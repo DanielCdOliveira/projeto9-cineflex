@@ -1,9 +1,9 @@
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 import Description from "./Description";
-// import Inputs from "./Inputs";
+import Footer from "../Footer";
 
 function Session() {
   const { idSessao } = useParams();
@@ -11,8 +11,9 @@ function Session() {
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
   const [seatsArray, setSeatsArray] = useState([]);
-  const [selected, setSelected] = useState();
+
   const navigate = useNavigate();
+
   useEffect(() => {
     const promise = axios.get(
       `https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`
@@ -26,8 +27,6 @@ function Session() {
   }, []);
 
   function selectSeat(seat) {
-    setSelected("selected");
-
     seat = parseInt(seat);
 
     let index = seatsArray.indexOf(seat);
@@ -110,8 +109,10 @@ function Session() {
             onChange={(e) => setCpf(e.target.value)}
           />
           <button type="submit">Reservar assento(s)</button>
-        </form>
+        </form>    
+        <Footer img={session.movie.posterURL} title={session.movie.title} day={session.day.weekday} hour={session.name}/>
       </main>
+
     );
   } else {
     return <></>;

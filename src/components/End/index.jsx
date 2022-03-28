@@ -1,7 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
 
 
-function Start(props) {
+function Start() {
   const { state } = useLocation();
   console.log(state);
 

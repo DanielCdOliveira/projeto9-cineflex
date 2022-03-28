@@ -204,7 +204,7 @@ h4 {
 }
 .button-home {
   font-size: 18px;
-line-height: 21px;
+  line-height: 21px;
   background: var(--highlight-color);
   border-radius: 3px;
   border: none;
@@ -213,6 +213,40 @@ line-height: 21px;
   height: 42px;
   align-self: center;
   margin-top: 57px;
+}
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 117px;
+  background: #dfe6ed;
+  border-top: 1px solid #9eadba;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+footer p{
+  font-size: 26px;
+line-height: 30px;
+color: var(--text);
+margin-left: 14px;
+}
+.footer-icon {
+  width: 64px;
+  height: 89px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  margin-left: 10px;
+}
+footer img {
+  width: 48px;
+  height: 72px;
 }
 
 /* General settings */

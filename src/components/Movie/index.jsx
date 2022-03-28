@@ -1,10 +1,14 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams,useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import Footer from "../Footer";
+
 function Movie() {
   const { idFilme } = useParams();
-  console.log(idFilme);
+  const {state} = useLocation()
+  console.log(state)
+
 
   const [sessions, setSessions] = useState([]);
 
@@ -29,7 +33,7 @@ function Movie() {
               <p>{`${session.weekday} - ${session.date}`}</p>
               {session.showtimes.map((hour) => {
                 return (
-                  <Link key={hour.id} to={`/sessao/${hour.id}`}>
+                  <Link key={hour.id} to={{pathname:`/sessao/${hour.id}`}}>
                     <button>{hour.name}</button>
                   </Link>
                 );
@@ -38,6 +42,7 @@ function Movie() {
           );
         })}
       </ul>
+      <Footer img={state.img} title={state.title}/>
     </main>
   );
 }

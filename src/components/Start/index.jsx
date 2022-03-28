@@ -16,7 +16,7 @@ function Start() {
   }, []);
 
   console.log(movies);
-  
+
   if (movies.length > 0) {
     return (
       <>
@@ -25,15 +25,21 @@ function Start() {
           <ul className="movies-list">
             {movies.map((movie) => {
               return (
-                <Link key={movie.id} to={`/filme/${movie.id}`}>
+                <Link
+                  key={movie.id}
+                  to={`/filme/${movie.id}`}
+                  state={{img:movie.posterURL,
+                  title:movie.title,
+                }}
+                >
                   <li className="movie-poster">
-                  <img src={movie.posterURL} alt="" />
+                    <img src={movie.posterURL} alt="" />
                   </li>
                 </Link>
               );
             })}
           </ul>
-      </main>
+        </main>
       </>
     );
   } else {
