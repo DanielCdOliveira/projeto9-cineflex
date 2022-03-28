@@ -27,18 +27,21 @@ function Session() {
   }, []);
 
   function selectSeat(seat) {
-    seat = parseInt(seat);
+    let seatId = parseInt(seat.name);
 
-    let index = seatsArray.indexOf(seat);
-    if (index > -1) {
+    let index = seatsArray.indexOf(seatId);
+    if(seat.isAvailable === true){if (index > -1) {
       setSeatsArray(
         seatsArray.filter((item) => {
-          return item != seat;
+          return item != seatId;
         })
       );
     } else {
-      setSeatsArray([...seatsArray, seat]);
+      setSeatsArray([...seatsArray, seatId]);
+    }}else{
+      alert("Esse assento não está disponível")
     }
+    
   }
 
   console.log(seatsArray);
@@ -77,7 +80,7 @@ function Session() {
             return (
               <li
                 onClick={() => {
-                  selectSeat(seat.name);
+                  selectSeat(seat);
                 }}
                 className={seat.isAvailable ? `seat` : "seat occupied"}
                 key={seat.id}
