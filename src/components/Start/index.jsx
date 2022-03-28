@@ -6,7 +6,7 @@ import Loading from "../Loading";
 
 function Start() {
   const [movies, setMovies] = useState([]);
-
+  // SEARCH DATA
   useEffect(() => {
     const promise = axios.get(
       "https://mock-api.driven.com.br/api/v5/cineflex/movies"
@@ -25,6 +25,7 @@ function Start() {
         <main>
           <h2>Selecione o filme</h2>
           <ul className="movies-list">
+            {/* RENDER MOVIES */}
             {movies.map((movie) => {
               return (
                 <Link

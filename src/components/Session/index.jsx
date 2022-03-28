@@ -13,9 +13,9 @@ function Session() {
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
   const [seatsArray, setSeatsArray] = useState([]);
-
   const navigate = useNavigate();
 
+  // SEARCH DATA
   useEffect(() => {
     const promise = axios.get(
       `https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`
@@ -25,7 +25,7 @@ function Session() {
       setSession(response.data);
     });
   }, []);
-
+  // SELECT SEAT
   function selectSeat(seat) {
     let seatId = parseInt(seat.name);
     let index = seatsArray.indexOf(seatId);
@@ -44,7 +44,7 @@ function Session() {
       alert("Esse assento não está disponível");
     }
   }
-
+  // RESERVE SEATS AND GO TO THE NEXT PAGE
   function reserveSeats(e) {
     e.preventDefault();
 
@@ -94,7 +94,7 @@ function Session() {
           <label>CPF do comprador:</label>
           <input
             type="number"
-            maxLength={11}
+            max={99999999999}
             placeholder="Digite seu CPF..."
             required
             value={cpf}
