@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+<div align="center"><img style = "width:100%;"src="https://i.imgur.com/qRRWTCx.png"></img></div>
+<hr>
+<h2 align=center>Cineflex</h2>
+<h3 align=center>Web development Project</h3>
+<hr>
+<h4 align=center>A Single-Page Application (SPA) for a movie theater, using React Router</h4>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br>
+<div align=center style="display:flex; justify-content: center; gap:5%">
+<img src="https://media.giphy.com/media/ZEiusYVtySiPmWwWb2/giphy.gif" width="209"></img>
+</div>
+<br><hr>
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User can select movie, day and session
+- Distinction between occupied, available and selected seats
+- Visual response to selected seats
+- Order summary on final screen
+- Uses API to receive and control data
+- Uses React Router to switch pages
 
-### `npm start`
+## Requirements
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Movie choice (route "/")
+    - [x] Fetch movie information by API provided and display according to provided layout
+    - [x] When clicking on a movie, the user must be redirected to the route "/sessoes/:idFilme", ​​where :idFilme is the id of the clicked movie
+- Session selection (route "/sessoes/:idFilme")
+    - [x] From the id of the URL, get the available sessions for the movie from the API and display as per the given layout
+    - [x] When clicking on a session, the user must be redirected to the route "/sestos/:idSessao", where :idSessao is the id of the chosen session
+- Seat choice (route "/sestos/:idSession")
+    - [x] From the session id, fetch the session data from the API and display the layout as provided
+    - [x] When clicking on an available seat, the seat must be marked as "Selected"
+    - [x] When clicking again on a selected seat, it should return to "Available"
+    - [x] When clicking on an unavailable seat, a "This seat is unavailable" alert should appear
+    - [x] User can select multiple seats
+    - [x] The user must be able to enter the buyer's name and CPF
+    - [x] By clicking on "Reserve seat(s)", the request must be sent to the server and the user must be redirected to the "/success" route. This will make the assigned seats unavailable for other bookings.
+- Baseboard
+    - [x] Along the Session and Seat screens, a footer should be displayed with the information of the selected movie. This information will come from the API calls on each screen
+- Success
+    - [x] Implement layout as provided, displaying order placed data
+    - [x] When clicking on "Home" the user must return to the initial route ("/"), with the order zeroed
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Usage
 
-### `npm test`
+Install my project with npm
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Clone the repository:
 
-### `npm run build`
+```bash
+  git clone git@github.com:DanielCdOliveira/projeto9-cineflex.git
+```
+>Install dependences:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+  npm install
+```
+> Run aplication:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deploy
 
-### `npm run eject`
+- Deploy using [Vercel](https://projeto9-cineflex-xi.vercel.app/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Built with
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
+![Javascript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Contact
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=blue
+[linkedin-url]: https://www.linkedin.com/in/danielcdoliveira/
