@@ -7,7 +7,7 @@
 
 <br>
 <div align=center style="display:flex; justify-content: center; gap:5%">
-<img src="https://media.giphy.com/media/ZEiusYVtySiPmWwWb2/giphy.gif" width="209"></img>
+    <img src="https://media.giphy.com/media/EAuw34PcJkjXDsK9Pz/giphy.gif" width="90%"></img>
 </div>
 <br><hr>
 
@@ -41,6 +41,12 @@
 - Success
     - [x] Implement layout as provided, displaying order placed data
     - [x] When clicking on "Home" the user must return to the initial route ("/"), with the order zeroed
+   
+## Bonus
+
+- Buyer information by seat
+     - [x] Make the buyer's Name and CPF fields no longer a single field to be fields for each selected seat. That is, each selected seat will have its own Name and CPF
+     - [x] As the person selects seats, the fields must be displayed below in the amount consistent with the selected seats
 
 ## Usage
 
